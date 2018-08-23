@@ -3,7 +3,7 @@ const Koa = require('koa')
 const Router = require('koa-router')
 const views = require('koa-views')
 
-const db = require('./mysql')
+const db = require('./db/mysql')
 
 const app = new Koa()
 
