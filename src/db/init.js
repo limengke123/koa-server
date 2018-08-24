@@ -1,4 +1,4 @@
-const query = require('./mysql')
+const {query} = require('./mysql')
 
 let users = `
     CREATE TABLE IF NOT EXISTS user(
@@ -28,7 +28,7 @@ let posts = `
 `
 
 let comment = `
-    CREATE TABLE IF NOT EXITS comment(
+    CREATE TABLE IF NOT EXISTS comment(
         id INT NOT NULL AUTO_INCREMENT,
         name VARCHAR(100) NOT NULL COMMENT '用户名称',
         content TEXT(0) NOT NULL COMMENT '评论内容',
@@ -41,7 +41,9 @@ let comment = `
 
 let createTable = sql => query(sql, [])
 
-createTable(users)
-createTable(posts)
-createTable(comment)
+exports.init = () => {
+    createTable(users)
+    createTable(posts)
+    createTable(comment)
+}
 
