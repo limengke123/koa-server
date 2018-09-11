@@ -6,12 +6,37 @@ const api = new Router()
 
 api.get('/', test)
 
-api.get('/mysql', insertUser)
+api.get('/mysql', insertPage)
 
 api.get('/list', getList)
 
+api.post('/addUser', addUser)
+
+async function addUser(ctx, next) {
+    let data
+    try {
+        data = insertData(ctx.request.body)
+        ctx.body = {
+            success: true,
+            data
+        }
+    } catch (e) {
+        console.log(e.stack)
+        ctx.body = {
+            success: false,
+            data
+        }
+    }
+}
+
 async function test (ctx, next) {
     ctx.body = 22
+}
+
+async function insertPage(ctx, next) {
+    await ctx.render('form', {
+        title: '添加用戶'
+    })
 }
 
 async function insertUser (ctx, next) {

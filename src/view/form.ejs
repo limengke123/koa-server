@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= title %></title>
+</head>
+<body>
+<h1>添加用戶</h1>
+<form action="/api/addUser" method="post">
+    <p>name: <input type="text" name="name" /></p>
+    <p>password: <input type="text" name="password" /></p>
+    <p>avator: <input type="text" name="avator" /></p>
+    <p>moment: <input type="text" name="moment" /></p>
+    <input type="submit" value="Submit" />
+</form>
+</body>
+</html>
